@@ -1,0 +1,30 @@
+[workspace]
+resolver = "3"
+members = [
+    "cli",
+    "core"
+]
+
+[workspace.dependencies]
+itertools = "0.15.0"
+dotenvy = "0.15.7"
+tokio = { version = "1.54.0", features = ["full"] }
+arc-swap = { version = "1.9.3", features = ["serde", "weak"] }
+clap = { version = "4.6.7", features = ["derive"] }
+ratatui = "0.30.2"
+crossterm = { version = "0.29.0", features = ["events"] }
+sqlx = { version = "0.9.0", features = [
+    "sqlite",
+    "runtime-tokio",
+    "chrono",
+    "migrate",
+] }
+thiserror = "2"
+uuid = { version = "1.29.0", features = ["v7"] }
+indexmap = "2.14.2"
+chrono = "0.4.45"
+moka = {version = "0.12", features = ["sync"]}
+toml = "1.1"
+serde = { version = "1.0", features = ["derive"] }
+strum = { version = "0.28", features = ["derive"] }
+strum_macros = "0.28.0"

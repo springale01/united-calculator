@@ -5,6 +5,7 @@ members = [
 , "crates/tools", "crates/tui"]
 
 [workspace.dependencies]
+uom = { version = "0.38.0", default-features = false, features = ["autoconvert", "f64", "si", "std"] }
 itertools = "0.15.0"
 dotenvy = "0.15.7"
 tokio = { version = "1.54.0", features = ["full"] }

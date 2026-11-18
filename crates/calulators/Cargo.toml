@@ -4,5 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-tools = { path = "../tools"}
+tools = { path = "../tools" }
 itertools.workspace = true
+indexmap.workspace = true
+thiserror.workspace = true
+uom.workspace = true
+strum.workspace = true

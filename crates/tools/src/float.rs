@@ -7,8 +7,9 @@ mod private {
 pub trait FloatType: private::Sealed {
     fn validate(float: f64) -> bool;
 }
-
+#[derive(Debug)]
 pub struct NonCursedFloat;
+#[derive(Debug)]
 pub struct MaybeCursedFloat;
 
 // Only our types get the secret permission!
@@ -26,7 +27,7 @@ impl FloatType for MaybeCursedFloat {
         true
     }
 }
-
+#[derive(Debug)]
 pub struct GoodFloat<T: FloatType> {
     value: f64,
     _marker: PhantomData<fn() -> T>,
@@ -39,6 +40,14 @@ impl<T: FloatType> GoodFloat<T> {
             _marker: PhantomData,
         })
     }
+    pub fn value(&self) -> f64 {
+        self.value
+    }
+}
+#[derive(Debug, strum::AsRefStr, strum::EnumIs)]
+pub enum UnitedFloat {
+    Cursed(GoodFloat<MaybeCursedFloat>),
+    NonCursed(GoodFloat<NonCursedFloat>),
 }
 #[test]
 fn test() {}
